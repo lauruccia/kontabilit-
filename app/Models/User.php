@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -23,6 +24,9 @@ class User extends Authenticatable
         'client_id',
         'name',
         'email',
+        'phone',
+        'job_title',
+        'is_active',
         'password',
     ];
 
@@ -45,6 +49,8 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'is_active' => 'boolean',
+            'last_login_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
@@ -52,5 +58,15 @@ class User extends Authenticatable
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function assignedLeads(): HasMany
+    {
+        return $this->hasMany(CrmLead::class, 'assigned_to');
+    }
+
+    public function assignedOpportunities(): HasMany
+    {
+        return $this->hasMany(CrmOpportunity::class, 'assigned_to');
     }
 }

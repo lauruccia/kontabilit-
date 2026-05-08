@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Modifica utente</x-slot><form method="POST" action="{{ route('admin.users.update', $user) }}" class="rounded-xl border border-[#d9e4df] bg-white p-6 shadow-sm">@method('PUT')@include('admin.users._form')</form></x-app-layout>

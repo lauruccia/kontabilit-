@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="mb-6 rounded-lg border border-orange-200 bg-orange-50 px-4 py-4 text-sm text-orange-900">
+        <div class="font-semibold">Accesso riservato ai clienti Gruppo Kosmos</div>
+        <p class="mt-1 leading-6">Usa le credenziali ricevute dal team Kosmos per accedere alla tua area riservata.</p>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -28,19 +33,19 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600">Ricordami</span>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    Password dimenticata?
                 </a>
             @endif
 
             <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+                Accedi
             </x-primary-button>
         </div>
     </form>

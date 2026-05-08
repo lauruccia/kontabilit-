@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Agency Contracts') }}</title>
+        <title>{{ config('app.name', 'Gruppo Kosmos Client Hub') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -15,14 +15,16 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased text-slate-900">
-        <div class="min-h-screen bg-slate-50">
+        <div class="min-h-screen bg-[#f3f7f5]">
             <div class="flex min-h-screen">
-                <aside class="hidden w-72 shrink-0 border-r border-slate-200 bg-white px-5 py-6 lg:block">
+                <aside class="hidden w-72 shrink-0 border-r border-[#d9e4df] bg-[#071111] px-5 py-6 lg:block">
                     <div class="flex items-center gap-3">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-slate-950 text-sm font-bold text-white">AC</div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
+                            <img src="{{ asset('images/gruppo-kosmos-logo.png') }}" alt="Gruppo Kosmos" class="h-full w-full object-contain">
+                        </div>
                         <div>
-                            <div class="text-sm font-semibold uppercase tracking-wide text-slate-500">Web Agency</div>
-                            <div class="text-lg font-semibold text-slate-950">Contracts Hub</div>
+                            <div class="text-sm font-semibold uppercase tracking-wide text-[#8ca98b]">Gruppo Kosmos</div>
+                            <div class="text-lg font-semibold text-white">Client Hub</div>
                         </div>
                     </div>
 
@@ -31,6 +33,8 @@
                             $links = [
                                 ['label' => 'Dashboard', 'route' => 'dashboard', 'icon' => 'M3 13h8V3H3v10Zm0 8h8v-6H3v6Zm10 0h8V11h-8v10Zm0-18v6h8V3h-8Z'],
                                 ['label' => 'Clienti', 'route' => 'admin.clients.index', 'active' => 'admin.clients.*', 'icon' => 'M16 11c1.66 0 3-1.57 3-3.5S17.66 4 16 4s-3 1.57-3 3.5S14.34 11 16 11ZM8 11c1.66 0 3-1.57 3-3.5S9.66 4 8 4 5 5.57 5 7.5 6.34 11 8 11Zm0 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4Zm8 0c-.31 0-.66.02-1.03.05 1.16.84 2.03 1.97 2.03 3.45V20h7v-3c0-2.66-5.33-4-8-4Z'],
+                                ['label' => 'CRM', 'route' => 'admin.crm.leads.index', 'active' => 'admin.crm.*', 'icon' => 'M4 4h16v4H4V4Zm0 6h7v10H4V10Zm9 0h7v4h-7v-4Zm0 6h7v4h-7v-4Z'],
+                                ['label' => 'Utenti e ruoli', 'route' => 'admin.users.index', 'active' => 'admin.users.*', 'icon' => 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-8 9a8 8 0 0 1 16 0H4Zm16-9a3 3 0 1 0 0-6v6Zm-1 9h5a6 6 0 0 0-7.7-5.76A9.96 9.96 0 0 1 19 21Z'],
                                 ['label' => 'Servizi', 'route' => 'admin.services.index', 'active' => 'admin.services.*', 'icon' => 'M4 4h16v4H4V4Zm0 6h16v10H4V10Zm3 3v2h6v-2H7Z'],
                                 ['label' => 'Preventivi', 'route' => 'admin.quotes.index', 'active' => 'admin.quotes.*', 'icon' => 'M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Z'],
                                 ['label' => 'Contratti', 'route' => 'admin.contracts.index', 'active' => 'admin.contracts.*', 'icon' => 'M5 3h10l4 4v14H5V3Zm9 1.5V8h3.5L14 4.5ZM8 12h8v2H8v-2Zm0 4h6v2H8v-2Z'],
@@ -44,7 +48,7 @@
                         @foreach ($links as $link)
                             @php $isActive = request()->routeIs($link['active'] ?? $link['route']); @endphp
                             <a @if ($link['route']) href="{{ route($link['route']) }}" @else href="#" aria-disabled="true" @endif
-                               class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium {{ $link['route'] && $isActive ? 'bg-slate-950 text-white' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-950' }}">
+                               class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold transition {{ $link['route'] && $isActive ? 'bg-[#9fbf9d] text-[#071111] shadow-sm' : 'text-[#d9e6df] hover:bg-white/10 hover:text-white' }}">
                                 <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{{ $link['icon'] }}"/></svg>
                                 {{ $link['label'] }}
                             </a>
@@ -53,10 +57,10 @@
                 </aside>
 
                 <div class="flex min-w-0 flex-1 flex-col">
-                    <header class="border-b border-slate-200 bg-white">
+                    <header class="border-b border-[#d9e4df] bg-white">
                         <div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
                             <div>
-                                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Pannello operativo</p>
+                                <p class="text-xs font-semibold uppercase tracking-wide text-[#486b75]">Pannello operativo Kosmos</p>
                                 <h1 class="text-lg font-semibold text-slate-950">{{ $title ?? 'Dashboard' }}</h1>
                             </div>
 

@@ -5,12 +5,14 @@ use App\Http\Controllers\Admin\AgencyServiceController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContractController;
 use App\Http\Controllers\Admin\ContractTemplateController;
+use App\Http\Controllers\Admin\CrmLeadController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\ReminderController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\ClientAreaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicContractSignatureController;
@@ -29,6 +31,9 @@ Route::middleware(['auth', 'verified', 'role:admin|operator'])
     ->name('admin.')
     ->group(function () {
         Route::resource('clients', ClientController::class);
+        Route::post('crm/activities/{activity}/complete', [CrmLeadController::class, 'completeActivity'])->name('crm.activities.complete');
+        Route::resource('crm/leads', CrmLeadController::class)->names('crm.leads');
+        Route::resource('users', UserManagementController::class);
         Route::resource('services', AgencyServiceController::class)->parameters([
             'services' => 'service',
         ]);
