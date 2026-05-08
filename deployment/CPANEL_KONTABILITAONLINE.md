@@ -1,4 +1,4 @@
-# Deploy cPanel - kontabilitaonline.it
+# Deploy cPanel - kosmopolis.it
 
 Questa procedura è pensata per cPanel senza terminale, con document root bloccata su `/public_html`.
 
@@ -64,7 +64,7 @@ e rinominalo in:
 Poi modifica questi valori:
 
 ```env
-APP_URL=https://kontabilitaonline.it
+APP_URL=https://kosmopolis.it
 DB_DATABASE=CPANEL_USER_kosmos
 DB_USERNAME=CPANEL_USER_kosmosuser
 DB_PASSWORD=password_database
@@ -100,7 +100,7 @@ Verifica che `deploy-once.php` sia presente in:
 Poi apri:
 
 ```text
-https://kontabilitaonline.it/deploy-once.php?token=VALORE_DEPLOY_TOKEN
+https://kosmopolis.it/deploy-once.php?token=VALORE_DEPLOY_TOKEN
 ```
 
 Quando termina, cancella subito:
@@ -116,8 +116,8 @@ e rimuovi `DEPLOY_TOKEN` dal file `.env`.
 Apri:
 
 ```text
-https://kontabilitaonline.it
-https://kontabilitaonline.it/login
+https://kosmopolis.it
+https://kosmopolis.it/login
 ```
 
 Credenziali seed iniziali:
