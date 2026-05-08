@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kontabilita/public_html/
+    - /bin/cp -R public/. $DEPLOYPATH
+    - /bin/cp deployment/cpanel-public-html-index.php ${DEPLOYPATH}index.php
