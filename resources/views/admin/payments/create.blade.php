@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Nuovo pagamento</x-slot><form method="POST" action="{{ route('admin.payments.store') }}" class="rounded-lg border bg-white p-6">@include('admin.payments._form')</form></x-app-layout>

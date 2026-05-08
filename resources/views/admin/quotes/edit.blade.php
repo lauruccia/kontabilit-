@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Modifica preventivo</x-slot><form method="POST" action="{{ route('admin.quotes.update', $quote) }}" class="rounded-lg border bg-white p-6 shadow-sm">@method('PUT')@include('admin.quotes._form')</form></x-app-layout>

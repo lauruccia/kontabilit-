@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Modifica scadenza</x-slot><form method="POST" action="{{ route('admin.reminders.update',$reminder) }}" class="rounded-lg border bg-white p-6">@method('PUT')@csrf@include('admin.reminders.form')</form></x-app-layout>

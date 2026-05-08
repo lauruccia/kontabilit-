@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">{{ $document->name }}</x-slot><div class="rounded-lg border bg-white p-6"><p>{{ $document->name }}</p><a class="underline" href="{{ route('admin.documents.download',$document) }}">Download sicuro</a></div></x-app-layout>

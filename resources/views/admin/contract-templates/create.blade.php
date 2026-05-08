@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Nuovo template</x-slot><form method="POST" action="{{ route('admin.contract-templates.store') }}" class="rounded-lg border bg-white p-6">@include('admin.contract-templates._form')</form></x-app-layout>

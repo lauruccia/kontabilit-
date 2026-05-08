@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Nuovo preventivo</x-slot><form method="POST" action="{{ route('admin.quotes.store') }}" class="rounded-lg border bg-white p-6 shadow-sm">@include('admin.quotes._form')</form></x-app-layout>

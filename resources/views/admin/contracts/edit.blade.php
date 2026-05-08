@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Modifica contratto</x-slot><form method="POST" action="{{ route('admin.contracts.update',$contract) }}" class="rounded-lg border bg-white p-6 shadow-sm">@method('PUT')@include('admin.contracts._form')</form></x-app-layout>

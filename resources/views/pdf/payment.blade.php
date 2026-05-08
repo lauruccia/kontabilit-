@@ -1,0 +1,1 @@
+<!doctype html><html><body style="font-family: DejaVu Sans, sans-serif"><h1>Ricevuta {{ $payment->number }}</h1><p>Cliente: {{ $payment->client->displayName() }}</p><p>Importo: € {{ number_format((float)$payment->amount,2,',','.') }}</p><p>Stato: {{ $payment->status }}</p><p>Data pagamento: {{ optional($payment->paid_at)->format('d/m/Y H:i') }}</p></body></html>

@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Modifica template</x-slot><form method="POST" action="{{ route('admin.contract-templates.update',$template) }}" class="rounded-lg border bg-white p-6">@method('PUT')@include('admin.contract-templates._form')</form></x-app-layout>

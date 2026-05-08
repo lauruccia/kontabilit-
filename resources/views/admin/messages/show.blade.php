@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">{{ $message->subject }}</x-slot><article class="rounded-lg border bg-white p-6"><div class="text-sm text-slate-500">{{ $message->client->displayName() }}</div><div class="mt-4 whitespace-pre-line">{{ $message->body }}</div></article></x-app-layout>

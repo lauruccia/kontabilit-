@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="title">Nuova scadenza</x-slot><form method="POST" action="{{ route('admin.reminders.store') }}" class="rounded-lg border bg-white p-6">@csrf@include('admin.reminders.form')</form></x-app-layout>

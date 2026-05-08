@@ -1,0 +1,8 @@
+<x-app-layout>
+    <x-slot name="title">{{ $contract->number }}</x-slot>
+    <div class="space-y-6"><x-status-alert />
+        <div class="flex items-center justify-between"><div><h2 class="text-xl font-semibold">{{ $contract->title }}</h2><p class="text-sm text-slate-500">{{ $contract->client->displayName() }} · {{ $contract->status }}</p></div><div class="flex flex-wrap gap-2"><a class="rounded-lg border px-3 py-2 text-sm" href="{{ route('admin.contracts.pdf',$contract) }}">PDF</a>@unless($contract->isSigned())<a class="rounded-lg border px-3 py-2 text-sm" href="{{ route('admin.contracts.edit', $contract) }}">Modifica</a>@endunless<form method="POST" action="{{ route('admin.contracts.send',$contract) }}">@csrf<button class="rounded-lg bg-slate-950 px-3 py-2 text-sm text-white">Invia firma</button></form><form method="POST" action="{{ route('admin.contracts.duplicate',$contract) }}">@csrf<button class="rounded-lg border px-3 py-2 text-sm">Duplica</button></form></div></div>
+        <section class="rounded-lg border bg-white p-6"><h3 class="font-semibold">Contenuto contratto</h3><div class="prose mt-4 max-w-none whitespace-pre-line text-sm">{{ $contract->rendered_content ?: $contract->terms }}</div>@if($contract->signature)<div class="mt-6 rounded-lg bg-emerald-50 p-4 text-sm text-emerald-800">Firmato elettronicamente via OTP il {{ $contract->signature->signed_at->format('d/m/Y H:i') }} da {{ $contract->signature->email }}. Hash: {{ $contract->signature->document_hash }}</div>@endif</section>
+        @if($contract->public_token)<div class="rounded-lg border bg-white p-4 text-sm">Link firma: <a class="font-medium underline" href="{{ $contract->publicUrl() }}">{{ $contract->publicUrl() }}</a></div>@endif
+    </div>
+</x-app-layout>
